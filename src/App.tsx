@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>NAME TBD</h1>
+        <h1>StudySync</h1>
         <p>
           Test For Study Widget
         </p>
