@@ -2,7 +2,9 @@
   "name": "my-widget",
   "version": "0.1.0",
   "private": true,
+  "main": "electron.js",
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
@@ -19,9 +21,10 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "electron": "wait-on http://localhost:3000 && electron .",
+    "dev": "concurrently \"npm run start\" \"npm run electron\"",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "postbuild": "electron ."
   },
   "eslintConfig": {
     "extends": [
@@ -40,5 +43,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "electron": "^34.3.0",
+    "wait-on": "^8.0.2"
   }
 }
